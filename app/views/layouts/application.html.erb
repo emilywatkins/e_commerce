@@ -19,11 +19,14 @@
         <% else %>
           <li><%= link_to 'Login', new_user_session_path %></li>
         <% end %>
+        <li><%= link_to 'all products', products_path %></li>
+
         <li><%= link_to 'my cart', cart_path %></li>
       </ul>
     </div>
   </nav>
-
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
