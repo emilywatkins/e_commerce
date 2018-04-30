@@ -4,6 +4,6 @@ Rails.application.routes.draw do
                 controllers: { registrations: "registrations" }
 
   resources :products
-  resources :orders_products
+  resources :order_items
 
 end
