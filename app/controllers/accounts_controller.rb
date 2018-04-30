@@ -1,8 +1,11 @@
 class AccountsController < ApplicationController
 
+  def new
+
+  end
+
   def create
-    @account = Account.new
-    @account.user = current_user
+    
   end
 
 end
