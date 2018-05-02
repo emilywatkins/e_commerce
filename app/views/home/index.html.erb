@@ -1,1 +1,5 @@
 <p>home page works!</p>
+
+<% @popular_list.each do |item| %>
+  <li><%= item['title'] %></li>
+<% end %>
