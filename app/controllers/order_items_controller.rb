@@ -1,4 +1,7 @@
 class OrderItemsController < ApplicationController
+  def index
+    @order_items = current_order.order_items
+  end
 
   def create
     @order = current_order
@@ -12,13 +15,16 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @item = @order.order_items.find(params[:id])
     @item.destroy
+    respond_to do |format|
+      format.html { redirect_to order_items_path }
+      format.js
+    end
     @order.save
-    redirect_to cart_path
   end
 
   private
 
   def item_params
-    params.require(:order_item).permit(:quantity, :product_id)
+    params.require(:order_item).permit(:product_id)
   end
 end

@@ -1,7 +1,9 @@
 <% if @order_items.any? %>
   <% @order_items.each do |item| %>
-    <p><%= item.product.name %> | <%= link_to "Delete", order_item_path(item), :data => {:confirm => "You sure?", :method => "delete"}, remote: true, id: "delete_item" %></p>
+    <li id="delete_item_<%= item.id %>">
+    <p><%= item.product.name %> | <%= link_to "Delete", order_item_path(item), :data => {:confirm => "You sure?", :method => "delete"}, remote: true %></p>
     <p> Unit Price: <%= number_to_currency item.product.price %> | Total Price: <%= number_to_currency (item.product.price) %></p>
+    </li>
   <% end %>
   <p>Your Total: <%= number_to_currency current_order.total_price %></p>
 <% else %>
