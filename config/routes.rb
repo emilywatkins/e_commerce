@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :products
   resources :order_items
   resource :cart, only: [:show]
+
+
+  get '/home_controller/random_article', to: 'home#index'
 end
