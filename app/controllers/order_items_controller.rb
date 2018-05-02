@@ -1,6 +1,11 @@
 class OrderItemsController < ApplicationController
   def index
     @order_items = current_order.order_items
+    @order_items_count = current_order.order_items.count
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
