@@ -1,0 +1,15 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">I Love Layovers</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if current_user %>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'Login', new_user_session_path %></li>
+      <% end %>
+      <li><%= link_to 'all products', products_path %></li>
+
+      <li><%= link_to 'my cart (' + current_order.order_items.count.to_s + ')', order_items_path %></li>
+    </ul>
+  </div>
+</nav>
