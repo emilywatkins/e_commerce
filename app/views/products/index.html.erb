@@ -1,9 +1,20 @@
-<p>products index.html</p>
-
+<table class="products_table">
+  <tr>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "price" %></th>
+    <th>Buy</th>
+  </tr>
 <% @products.each do |product| %>
-  <p><%= product.name %> | <%= number_to_currency product.price %>
-  <%= form_for @order_item do |f| %>
-    <%= f.hidden_field :product_id, value: product.id %>
-    <%= f.submit "Add to cart" %>
-  <% end %></p>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= number_to_currency product.price %></td>
+    <td>
+      <form class="new_order_item" id="new_order_item" action="/order_items" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="<%=product.id%>">
+        <input value="<%=product.id%>" type="hidden" name="order_item[product_id]" id="order_item_product_id">
+        <input type="submit" name="commit" value="Add to cart" data-disable-with="Add to cart">
+      </form>
+    </td>
+  </tr>
 <% end %>
+</table>

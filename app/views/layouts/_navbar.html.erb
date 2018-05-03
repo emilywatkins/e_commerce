@@ -9,7 +9,7 @@
       <% end %>
       <li><%= link_to 'all products', products_path %></li>
 
-      <li id="cart-count"><%= link_to 'my cart (' + current_order.order_items.count.to_s + ')', order_items_path, remote: true %></li>
+      <li id="cart-count"><%= link_to 'my cart (' + current_order.order_items.count.to_s + ')', order_items_path %></li>
     </ul>
   </div>
 </nav>

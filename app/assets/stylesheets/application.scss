@@ -14,3 +14,21 @@
  */
 @import 'materialize';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+table, td, tr, th {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.products_table th .current {
+  padding-right: 22px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.products_table th .asc {
+  background-image: asset-url("up.png");
+}
+
+.products_table th .desc {
+  background-image: asset-url("down.png");
+}
